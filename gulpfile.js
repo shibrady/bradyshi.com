@@ -1,20 +1,22 @@
-var gulp = require('gulp');
-var changed = require('gulp-changed');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var cleanCss = require('gulp-clean-css');
-var sourcemaps = require('gulp-sourcemaps');
-var concat = require('gulp-concat');
-var del = require('del');
-var babelify = require('babelify');
-var browserify = require('browserify');
-var buffer = require('vinyl-buffer');
-var source = require('vinyl-source-stream');
+/* global require */
 
-var browserSync = require('browser-sync').create('AppServer');
-var fallback = require('connect-history-api-fallback');
+let gulp = require('gulp');
+let changed = require('gulp-changed');
+let sass = require('gulp-sass');
+let autoprefixer = require('gulp-autoprefixer');
+let cleanCss = require('gulp-clean-css');
+let sourcemaps = require('gulp-sourcemaps');
+let concat = require('gulp-concat');
+let del = require('del');
+let babelify = require('babelify');
+let browserify = require('browserify');
+let buffer = require('vinyl-buffer');
+let source = require('vinyl-source-stream');
 
-var dependencies = ['react',
+let browserSync = require('browser-sync').create('AppServer');
+let fallback = require('connect-history-api-fallback');
+
+let dependencies = ['react',
   'react-dom',
   'react-router',
   'react-redux',
@@ -39,13 +41,13 @@ gulp.task('bundle-vendor', function() {
  * Will capture all React/Redux entities
  */
 gulp.task('browserify', ['bundle-vendor'], function() {
-  return browserify({ entries: 'src/main.js', debug: true })
+  return browserify({entries: 'src/main.js', debug: true})
     .external(dependencies)
-    .transform(babelify, { presets: ['latest', 'react'] })
+    .transform(babelify, {presets: ['latest', 'react']})
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(buffer())
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/js'));
 });
@@ -57,26 +59,26 @@ gulp.task('browserify', ['bundle-vendor'], function() {
 gulp.task('styles', function() {
   return gulp.src(
       ['node_modules/normalize.css/normalize.css',
-      'src/styles/**/*.scss'
+      'src/styles/**/*.scss',
       ])
-    .pipe(changed('./dist/styles', { extension: '.css' }))
+    .pipe(changed('./dist/styles', {extension: '.css'}))
     .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
+    .pipe(autoprefixer({browsers: ['last 2 versions']}))
     .pipe(cleanCss())
     .pipe(concat('stylesheet.css'))
-    .pipe(gulp.dest('dist/styles'))
+    .pipe(gulp.dest('dist/styles'));
 });
 
-var static = ['src/index.html'];
+let staticFiles = ['src/index.html'];
 
 /**
  * Move all files that simply need to be moved
  * without any additional processing (index.html, images, etc.)
  */
-gulp.task('static', function() {
-  return gulp.src(static)
+gulp.task('staticFiles', function() {
+  return gulp.src(staticFiles)
     .pipe(changed('./dist'))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('build', ['browserify', 'styles', 'static']);
@@ -106,18 +108,18 @@ gulp.task('static-watch', ['static'], function() {
 gulp.task('serve', ['build'], function() {
   browserSync.init({
     server: {
-      baseDir: "./dist",
+      baseDir: './dist',
       // Middleware necessary in order to be able to visit any link
       // That isn't '/' without having 404 errors
-      middleware: [fallback()]
-    }
+      middleware: [fallback()],
+    },
   });
 
   gulp.watch('src/**/*.js', ['react-watch']);
 
   gulp.watch('src/**/*.scss', ['sass-watch']);
 
-  gulp.watch(static, ['static-watch']);
+  gulp.watch(staticFiles, ['static-watch']);
 });
 
 gulp.task('clean', function() {
