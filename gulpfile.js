@@ -1,6 +1,8 @@
 /* global require */
+'use strict';
 
 let gulp = require('gulp');
+let gutil = require('gulp-util');
 let changed = require('gulp-changed');
 let sass = require('gulp-sass');
 let autoprefixer = require('gulp-autoprefixer');
@@ -10,6 +12,7 @@ let concat = require('gulp-concat');
 let del = require('del');
 let babelify = require('babelify');
 let browserify = require('browserify');
+let watchify = require('watchify');
 let buffer = require('vinyl-buffer');
 let source = require('vinyl-source-stream');
 
@@ -22,6 +25,35 @@ let dependencies = ['react',
   'react-redux',
   'redux',
   'redux-devtools'];
+
+let bInstance = browserify(
+  {entries: 'src/main.js',
+  debug: true,
+  cache: {},
+  packageCache: {},
+  plugin: [watchify],
+});
+bInstance.external(dependencies);
+bInstance.transform(babelify, {presets: ['latest', 'react']});
+
+let bundle = () => {
+  let start = Date.now();
+  return bInstance.bundle()
+    .on('error', function(err) {
+      gutil.log(gutil.colors.red('Unexpected bundling error: '
+      + err.message));
+    })
+    .on('end', function() {
+      gutil.log(gutil.colors.green('Finished rebundling in',
+        (Date.now() - start) + 'ms.'));
+      browserSync.reload();
+    })
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('dist/js'));
+};
 
 /**
  * Browserify our external dependencies once
@@ -39,18 +71,22 @@ gulp.task('bundle-vendor', function() {
 /**
  * Browserify our actual application with the entry point main.js
  * Will capture all React/Redux entities
+ * This is needed separately from the watchify task due to
+ * watchify requiring an initial bundling
  */
 gulp.task('browserify', ['bundle-vendor'], function() {
-  return browserify({entries: 'src/main.js', debug: true})
-    .external(dependencies)
-    .transform(babelify, {presets: ['latest', 'react']})
-    .bundle()
-    .pipe(source('bundle.js'))
-    .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('dist/js'));
+  return bundle();
 });
+
+/**
+ * Watchify task that watches for our .js file changes
+ * and rebundles for BrowserSync to reload and display
+ */
+ gulp.task('watchify', function() {
+   return bInstance.on('update', () => {
+     bundle();
+   });
+ });
 
 /**
  * Compile and move all of our styles (.scss files)
@@ -81,16 +117,11 @@ gulp.task('staticFiles', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build', ['browserify', 'styles', 'static']);
+gulp.task('build', ['browserify', 'styles', 'staticFiles']);
 
 /**
  * BrowserSync/serving specific tasks below
  */
-
-// Browser reloads after every *.js file change (see 'serve')
-gulp.task('react-watch', ['browserify'], function() {
-   browserSync.reload();
-});
 
 // Browser reloads after every *.scss file change (see 'serve')
 gulp.task('sass-watch', ['sass'], function() {
@@ -98,7 +129,7 @@ gulp.task('sass-watch', ['sass'], function() {
 });
 
 // Browser reloads after every *.scss file change (see 'serve')
-gulp.task('static-watch', ['static'], function() {
+gulp.task('static-watch', ['staticFiles'], function() {
   browserSync.reload();
 });
 
@@ -115,11 +146,11 @@ gulp.task('serve', ['build'], function() {
     },
   });
 
-  gulp.watch('src/**/*.js', ['react-watch']);
-
   gulp.watch('src/**/*.scss', ['sass-watch']);
 
   gulp.watch(staticFiles, ['static-watch']);
+
+  gulp.start('watchify');
 });
 
 gulp.task('clean', function() {
