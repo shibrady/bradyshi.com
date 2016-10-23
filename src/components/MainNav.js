@@ -1,22 +1,28 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
-const MainNav = () => {
+const MainNav = ({children}) => {
   return (
     <div>
-      <header>
-        <h1>Brady Shi</h1>
-        <p>Computer Engineer and Wannabe Coffee Connoisseur</p>
+      <header className="site-header">
+        <div className="site-logo">
+          <h1>Brady Shi</h1>
+        </div>
+        <nav className="main-nav">
+          <ul>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
+          </ul>
+        </nav>
       </header>
-      <nav>
-        <ul>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><Link to="/blog">Coffee Thoughts</Link></li>
-        </ul>
-      </nav>
+      {children}
     </div>
   );
+};
+
+MainNav.propTypes = {
+  children: PropTypes.object,
 };
 
 export default MainNav;
