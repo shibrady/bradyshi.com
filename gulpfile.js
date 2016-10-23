@@ -124,7 +124,7 @@ gulp.task('build', ['browserify', 'styles', 'staticFiles']);
  */
 
 // Browser reloads after every *.scss file change (see 'serve')
-gulp.task('sass-watch', ['sass'], function() {
+gulp.task('styles-watch', ['styles'], function() {
   browserSync.reload();
 });
 
@@ -146,7 +146,7 @@ gulp.task('serve', ['build'], function() {
     },
   });
 
-  gulp.watch('src/**/*.scss', ['sass-watch']);
+  gulp.watch('src/**/*.scss', ['styles-watch']);
 
   gulp.watch(staticFiles, ['static-watch']);
 
