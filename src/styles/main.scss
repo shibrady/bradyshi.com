@@ -1,42 +1,49 @@
+$primary-text-color: #323232;
+$primary-border-color: rgba(50, 50, 50, .3);
+
 * {
   font-family: 'Titillium Web', Arial, sans-serif;
 }
 
+body {
+  height: 100vh;
+}
+
 .site-header {
-  display: flex;
-  flex-direction: row;
   align-items: center;
+  border-bottom: 1px solid $primary-border-color;
+  display: flex;
+  padding: 1em 1.5em;
 }
 
 .site-logo > h1 {
-  margin: 0 0;
   font-size: 2rem;
+  letter-spacing: .2rem;
+  margin: 0;
   text-transform: uppercase;
-  letter-spacing: .1rem;
 }
 
 .main-nav {
-}
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
 
-.main-nav > ul{
-  margin: 0 0;
-}
+  > ul {
+    margin: 0;
+  }
 
-.main-nav li {
-  display: inline;
-  padding: 0 .75em;
+  li {
+    display: inline;
+    font-size: 2rem;
+    letter-spacing: .1rem;
+    padding: 0 .75em;
+    text-transform: uppercase;
+  }
 
-  font-size: 2rem;
-  letter-spacing: .1rem;
-  text-transform: uppercase;
-}
-
-.main-nav a {
-  color: #323232;
-  text-decoration: none;
-}
-
-.main-nav a:visited {
-  color: #323232;
-  text-decoration: none;
+  a {
+    color: $primary-text-color;
+    text-decoration: none;
+    &:visited {color: $primary-text-color; text-decoration: none;}
+  }
 }
