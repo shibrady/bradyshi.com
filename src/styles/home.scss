@@ -1,0 +1,30 @@
+@import 'colors';
+@import 'fonts';
+
+#root {
+  height: 100%;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+.main-desc-cont {
+  align-items: flex-end;
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: 3em;
+  margin-left: 7em;
+}
+
+.main-desc {
+  max-width: 65%;
+
+  > p {
+    color: $primary-text-color;
+    font-family: $font-family-w-lora;
+    font-size: 3.5rem;
+  }
+}

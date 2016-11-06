@@ -1,12 +1,13 @@
-$primary-text-color: #323232;
-$primary-border-color: rgba(50, 50, 50, .3);
+@import 'colors';
+@import 'fonts';
 
 * {
-  font-family: 'Titillium Web', Arial, sans-serif;
+  font-family: $base-font-family;
 }
 
+html,
 body {
-  height: 100vh;
+  height: 100%;
 }
 
 .site-header {
@@ -44,6 +45,10 @@ body {
   a {
     color: $primary-text-color;
     text-decoration: none;
-    &:visited {color: $primary-text-color; text-decoration: none;}
+
+    &:visited {
+      color: $primary-text-color;
+      text-decoration: none;
+    }
   }
 }
