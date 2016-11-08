@@ -1,0 +1,31 @@
+@import 'colors';
+@import 'fonts';
+
+.about-cont {
+  display: flex;
+}
+
+.about-desc-cont {
+  flex: 0 0 50%;
+}
+
+.about-desc {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5em;
+  padding-top: 5em;
+
+  > h2 {
+    font-size: 2rem;
+    margin: .25em 0;
+  }
+
+  > p {
+    font-size: 1.5rem;
+    margin: .25em 0;
+  }
+}
+
+.about-aside {
+  flex: 0 0 50%;
+}

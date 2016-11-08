@@ -8,6 +8,8 @@ import {Provider} from 'react-redux';
 import MainNav from './containers/MainNavContainer';
 import MainDesc from './containers/MainDescContainer';
 import About from './containers/AboutMeContainer';
+import Projects from './containers/ProjectsContainer';
+import Blog from './containers/BlogContainer';
 import RootReducer from './reducers/root';
 
 let store = createStore(RootReducer);
@@ -18,6 +20,8 @@ ReactDOM.render(
       <Route path="/" component={MainNav}>
         <IndexRoute component={MainDesc} />
         <Route path="/about" component={About} />
+        <Route path="/projects" component={Projects} />
+        <Route path="/blog" component={Blog} />
       </Route>
     </Router>
   </Provider>,

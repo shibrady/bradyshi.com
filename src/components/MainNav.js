@@ -6,7 +6,7 @@ const MainNav = ({children}) => {
     <div>
       <header className="site-header">
         <div className="site-logo">
-          <h1>Brady Shi</h1>
+          <h1><Link to="/">Brady Shi</Link></h1>
         </div>
         <nav className="main-nav">
           <ul>

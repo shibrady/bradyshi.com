@@ -22,6 +22,16 @@ body {
   letter-spacing: .2rem;
   margin: 0;
   text-transform: uppercase;
+
+  a {
+    color: $primary-text-color;
+    text-decoration: none;
+
+    &:visited {
+      color: $primary-text-color;
+      text-decoration: none;
+    }
+  }
 }
 
 .main-nav {

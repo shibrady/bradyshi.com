@@ -105,14 +105,17 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('dist/styles'));
 });
 
-let staticFiles = ['src/index.html'];
+let staticFiles = [
+  'src/index.html',
+  'src/assets/**',
+];
 
 /**
  * Move all files that simply need to be moved
  * without any additional processing (index.html, images, etc.)
  */
 gulp.task('staticFiles', function() {
-  return gulp.src(staticFiles)
+  return gulp.src(staticFiles, {base: './src'})
     .pipe(changed('./dist'))
     .pipe(gulp.dest('dist'));
 });
