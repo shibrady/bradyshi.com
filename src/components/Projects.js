@@ -5,7 +5,9 @@ const Projects = () => {
     <div className="projects-cont">
       <section className="project-section">
         <div className="project-image-cont">
-          <img src="./assets/proj_bradyshicom.png" alt="bradyshi.com"/>
+          <a href="https://github.com/shibrady/bradyshi.com">
+            <img src="./assets/proj_bradyshicom.png" alt="bradyshi.com"/>
+          </a>
         </div>
         <div className="project-desc-cont">
           <h1>bradyshi.com</h1>
