@@ -22,11 +22,25 @@
 
   > p {
     font-size: 1.5rem;
-    margin: .25em 0;
     line-height: 2.5rem;
+    margin: .25em 0;
   }
 }
 
 .about-aside {
   flex: 0 0 50%;
+  padding-left: 8em;
+  padding-top: 7em;
+
+  .icon-and-descriptor {
+    align-items: center;
+    display: flex;
+    padding: 1em 0;
+
+    .icon-descriptor {
+      font-size: 2rem;
+      padding-left: 2em;
+    }
+  }
+
 }

@@ -18,6 +18,22 @@ const AboutMe = () => {
         </div>
       </section>
       <div className="about-aside">
+        <div className="icon-and-descriptor">
+          <i className="fa fa-file-text-o fa-3x"></i>
+          <span className="icon-descriptor">Take a look at my resume!</span>
+        </div>
+        <div className="icon-and-descriptor">
+          <i className="fa fa-linkedin fa-3x"></i>
+          <span className="icon-descriptor">Or maybe my LinkedIn!</span>
+        </div>
+        <div className="icon-and-descriptor">
+          <i className="fa fa-headphones fa-3x"></i>
+          <span className="icon-descriptor">Judge my playlist!</span>
+        </div>
+        <div className="icon-and-descriptor">
+          <i className="fa fa-envelope-o fa-3x"></i>
+          <span className="icon-descriptor">... or just contact me.</span>
+        </div>
       </div>
     </div>
   );
