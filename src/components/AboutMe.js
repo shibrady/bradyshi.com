@@ -6,32 +6,38 @@ const AboutMe = () => {
       <section className="about-desc-cont">
         <div className="about-desc">
           <h2>Coffee and tea, and the jive and me.</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Pellentesque id arcu a velit feugiat mollis at eget nibh.
-          Nulla eget pretium neque, sit amet scelerisque metus.
-          Praesent vulputate tristique sodales.
-          Ut at nisl quis sapien vehicula suscipit.
-          Maecenas fermentum, leo vitae pretium tincidunt,
-          massa augue efficitur ligula, interdum ultrices diam tellus eget urna.
-          Sed aliquam facilisis sapien, posuere sagittis quam fringilla vel.
-          Maecenas mollis elementum ultricies.</p>
+          <p>Currently on my last year at UC San Diego, studying
+          for my bachelor{'\''}s in Computer Engineering. Somehow I{'\''}ve
+          a hobby for having hobbies, now attempting to become an
+          auto-detailer, basketballer, cook, and certified barista. And,
+          apparently, programming. Take a look at the links to the right,
+          my projects, my blog (in the future),
+          and feel free to contact me about anything.</p>
         </div>
       </section>
       <div className="about-aside">
         <div className="icon-and-descriptor">
-          <i className="fa fa-file-text-o fa-3x"></i>
+          <a href="./assets/Brady_Shi_Resume.pdf">
+            <i className="fa fa-file-text-o fa-fw fa-3x"></i>
+          </a>
           <span className="icon-descriptor">Take a look at my resume!</span>
         </div>
         <div className="icon-and-descriptor">
-          <i className="fa fa-linkedin fa-3x"></i>
+          <a href="https://www.linkedin.com/in/bradyshi">
+            <i className="fa fa-linkedin fa-fw fa-3x"></i>
+          </a>
           <span className="icon-descriptor">Or maybe my LinkedIn!</span>
         </div>
         <div className="icon-and-descriptor">
-          <i className="fa fa-headphones fa-3x"></i>
+          <a href="http://tidal.com/playlist/7713f71f-98b5-4583-9946-1c23a7b21d68">
+            <i className="fa fa-headphones fa-fw fa-3x"></i>
+          </a>
           <span className="icon-descriptor">Judge my playlist!</span>
         </div>
         <div className="icon-and-descriptor">
-          <i className="fa fa-envelope-o fa-3x"></i>
+          <a href="mailto:brady-shi@outlook.com">
+            <i className="fa fa-envelope-o fa-fw fa-3x"></i>
+          </a>
           <span className="icon-descriptor">... or just contact me.</span>
         </div>
       </div>

@@ -8,10 +8,10 @@
 }
 
 .project-section {
-  align-items: center;
+  align-items: stretch;
   display: flex;
   flex-direction: row;
-  padding: 5em;
+  margin: 5em;
 }
 
 .project-image-cont {
@@ -26,14 +26,14 @@
 }
 
 .project-desc-cont {
+  align-self: center;
   display: flex;
   flex: 1 0 auto;
   flex-direction: column;
-  justify-content: center;
   padding-left: 3em;
 
   > h2 {
-    margin-bottom: .25em;
+    margin-bottom: .5em;
     margin-top: 0;
   }
 

@@ -3,6 +3,9 @@
 
 .about-cont {
   display: flex;
+  justify-content: center;
+  margin-left: 3%;
+  margin-top: 5%;
 }
 
 .about-desc-cont {
@@ -12,8 +15,6 @@
 .about-desc {
   display: flex;
   flex-direction: column;
-  padding-left: 5em;
-  padding-top: 5em;
 
   > h2 {
     font-size: 2rem;
@@ -29,13 +30,23 @@
 
 .about-aside {
   flex: 0 0 50%;
-  padding-left: 8em;
-  padding-top: 7em;
+  margin-left: 5em;
 
   .icon-and-descriptor {
     align-items: center;
     display: flex;
     padding: 1em 0;
+
+
+    > a {
+      color: $primary-text-color;
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: $primary-text-color;
+      text-decoration: none;
+    }
 
     .icon-descriptor {
       font-size: 2rem;

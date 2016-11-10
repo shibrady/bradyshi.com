@@ -17,19 +17,29 @@ body {
   padding: 1em 1.5em;
 }
 
-.site-logo > h1 {
-  font-size: 2rem;
-  letter-spacing: .2rem;
-  margin: 0;
-  text-transform: uppercase;
+.site-logo {
+  align-items: center;
+  display: flex;
 
-  a {
-    color: $primary-text-color;
-    text-decoration: none;
+  img {
+    border: 2px solid $secondary-border-color;
+    margin: 0 1em;
+  }
 
-    &:visited {
+  > h1 {
+    font-size: 2.25rem;
+    letter-spacing: .2rem;
+    margin: 0;
+    text-transform: uppercase;
+
+    a {
       color: $primary-text-color;
       text-decoration: none;
+
+      &:visited {
+        color: $primary-text-color;
+        text-decoration: none;
+      }
     }
   }
 }

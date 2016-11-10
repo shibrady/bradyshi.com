@@ -5,7 +5,7 @@ const MainDesc = () => {
     <section className="main-desc-cont">
       <div className="main-desc">
         <p>Computer Engineer, Coffee Connoisseur,
-        Auto Detailer, Hip Hop Head,
+        Auto Detailer, Hip Hop Head, (Basket)baller,
         Ranter, & Kanye Stan</p>
       </div>
     </section>
