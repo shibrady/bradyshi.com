@@ -95,6 +95,7 @@ gulp.task('browserify', ['bundle-vendor'], function() {
 gulp.task('styles', function() {
   return gulp.src(
       ['node_modules/normalize.css/normalize.css',
+      'node_modules/font-awesome/css/font-awesome.min.css',
       'src/styles/**/*.scss',
       ])
     .pipe(changed('./dist/styles', {extension: '.css'}))
@@ -120,7 +121,13 @@ gulp.task('staticFiles', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build', ['browserify', 'styles', 'staticFiles']);
+gulp.task('font-awesome', function() {
+  return gulp.src(['node_modules/font-awesome/fonts/**'],
+    {base: 'node_modules/font-awesome/'})
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('build', ['browserify', 'styles', 'staticFiles', 'font-awesome']);
 
 /**
  * BrowserSync/serving specific tasks below
