@@ -8,9 +8,9 @@ const AboutMe = () => {
           <h2>Coffee and tea, and the jive and me.</h2>
           <p>Currently on my last year at UC San Diego, studying
           for my bachelor{'\''}s in Computer Engineering. Somehow I{'\''}ve
-          a hobby for having hobbies, now attempting to become an
-          auto-detailer, basketballer, cook, and certified barista. And,
-          apparently, programming. Take a look at the links to the right,
+          taken up a hobby for having hobbies, and am now attempting to become
+          an auto-detailer, basketballer, cook, and certified barista. And,
+          apparently, a programmer. Take a look at the links to the right,
           my projects, my blog (in the future),
           and feel free to contact me about anything.</p>
         </div>
