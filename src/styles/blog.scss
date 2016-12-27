@@ -6,10 +6,32 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  height: 100%;
-  justify-content: center;
+}
 
-  > p {
-    font-size: 3rem;
+.blog-post-snippet {
+  border-bottom: 1px solid $primary-border-color;
+  display: flex;
+  flex-direction: column;
+  padding: 2em 0;
+  width: 50%;
+
+  h1 {
+    margin: 0;
+  }
+
+  h2 {
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 1em;
+    margin-top: .5em;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  p {
+    font-size: 1.3rem;
+    line-height: 1.58;
   }
 }

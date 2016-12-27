@@ -11,7 +11,10 @@ const Projects = () => {
         </div>
         <div className="project-desc-cont">
           <h1>bradyshi.com</h1>
-          <h2>A site created to feature whatshisname</h2>
+          <h2>
+            A mostly work-in-progress site
+            created to feature whatshisname
+          </h2>
           <h3>And house all of his rants</h3>
           <p><b>Technologies Used</b>: React, Redux, Sass, Gulp, Node</p>
         </div>

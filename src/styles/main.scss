@@ -10,11 +10,24 @@ body {
   height: 100%;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.site-cont {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+}
+
 .site-header {
   align-items: center;
   border-bottom: 1px solid $primary-border-color;
   display: flex;
-  flex: 0 0 auto;
+  flex: 0 0 20%;
   padding: 1em 1.5em;
 }
 

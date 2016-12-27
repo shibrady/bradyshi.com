@@ -4,15 +4,14 @@
 .projects-cont {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .project-section {
   align-items: stretch;
   display: flex;
   flex-direction: row;
-  margin: 4em 0;
   justify-content: center;
+  margin: 4em 0;
 }
 
 .project-image-cont {
