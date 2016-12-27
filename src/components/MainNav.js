@@ -3,7 +3,7 @@ import {Link} from 'react-router';
 
 const MainNav = ({children}) => {
   return (
-    <div>
+    <div className="site-cont">
       <header className="site-header">
         <div className="site-logo">
           <Link to="/"><img src="./assets/bs_logo.svg"></img></Link>
