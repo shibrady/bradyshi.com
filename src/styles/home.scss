@@ -29,3 +29,16 @@
     line-height: 6rem;
   }
 }
+
+@media (max-width: 1700px) {
+  .main-desc {
+    max-width: 80%;
+
+    > p {
+      color: $primary-text-color;
+      font-family: $font-family-w-lora;
+      font-size: 3rem;
+      line-height: 6rem;
+    }
+  }
+}
