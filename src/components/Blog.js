@@ -7,7 +7,7 @@ const Blog = () => {
         <h1>About This Site</h1>
         <h2>An explanatory post that should probably
             be located somewhere else.</h2>
-        <img src="./assets/blog_aboutsite.PNG"
+        <img src="./assets/blog_aboutsite.png"
           alt="Eww, Atom? Guess we aren't hiring you."/>
         <p>
           So, I think of the site mostly serving as a hub of
