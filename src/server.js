@@ -1,5 +1,6 @@
 import express from 'express';
 import pg from 'pg';
+import cors from 'cors';
 
 let app = express();
 let pgConfig = {
@@ -8,12 +9,15 @@ let pgConfig = {
   database: 'bradyshicom',
   host: 'localhost',
   port: '5432',
+  max: 50,
+  idleTimeoutMillis: 1000,
 };
 
-let client = new pg.Client(pgConfig);
+let pool = new pg.Pool(pgConfig);
 
+app.use(cors());
 app.get('/projects', function(req, res) {
-  client.connect(function(err) {
+  pool.connect(function(err, client, release) {
     if (err) {
       res.status(500).send({
         error: 'Could not connect to the database!',
@@ -30,6 +34,8 @@ app.get('/projects', function(req, res) {
         res.send(result.rows);
       }
     });
+
+    release();
   });
 });
 
