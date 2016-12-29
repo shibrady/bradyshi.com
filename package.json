@@ -6,6 +6,7 @@
   "author": "Brady Shi",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.1",
     "es6-promise": "^4.0.5",
     "express": "^4.14.0",
     "font-awesome": "^4.7.0",
