@@ -32,6 +32,7 @@ let dependencies = ['react',
 let serverDependencies = ['pg',
   'pg-native',
   'express',
+  'cors',
 ];
 
 let bInstance = browserify(
@@ -107,7 +108,6 @@ gulp.task('browserifyServer', function() {
  gulp.task('watchify', function() {
    return bInstance.on('update', () => {
      bundle(bInstance, 'bundle.js', 'dist/js');
-     browserSync.reload();
    });
  });
 
