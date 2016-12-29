@@ -195,9 +195,7 @@ gulp.task('default', ['clean'], function() {
 
 gulp.task('database', function() {
   let stream = nodemon({
-    script: 'dist/server.js',
-    watch: 'src/server.js',
-    tasks: ['browserifyServer']});
+    script: 'dist/server.js'});
 
   stream
       .on('restart', function() {
@@ -208,4 +206,6 @@ gulp.task('database', function() {
           'Attempting to restart...'));
         stream.emit('restart', 5);
       });
+
+  gulp.watch('src/server.js', ['browserifyServer']);
 });
