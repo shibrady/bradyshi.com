@@ -26,10 +26,13 @@ let dependencies = ['react',
   'react-redux',
   'redux',
   'redux-devtools',
-  'pg',
+  'redux-thunk',
+];
+
+let serverDependencies = ['pg',
   'pg-native',
   'express',
-  ];
+];
 
 let bInstance = browserify(
   {entries: ['src/main.js'],
@@ -47,8 +50,8 @@ let bInstanceServer = browserify(
   cache: {},
   packageCache: {},
 });
-bInstanceServer.external(dependencies);
-bInstanceServer.transform(babelify, {presets: ['latest', 'react']});
+bInstanceServer.external(serverDependencies);
+bInstanceServer.transform(babelify, {presets: ['latest']});
 
 let bundle = (bInstance, sourceName, destination) => {
   let start = Date.now();
