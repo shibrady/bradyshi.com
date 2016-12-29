@@ -2,6 +2,7 @@
 'use strict';
 
 let gulp = require('gulp');
+let nodemon = require('gulp-nodemon');
 let gutil = require('gulp-util');
 let changed = require('gulp-changed');
 let sass = require('gulp-sass');
@@ -24,10 +25,14 @@ let dependencies = ['react',
   'react-router',
   'react-redux',
   'redux',
-  'redux-devtools'];
+  'redux-devtools',
+  'pg',
+  'pg-native',
+  'express',
+  ];
 
 let bInstance = browserify(
-  {entries: 'src/main.js',
+  {entries: ['src/main.js'],
   debug: true,
   cache: {},
   packageCache: {},
@@ -36,7 +41,16 @@ let bInstance = browserify(
 bInstance.external(dependencies);
 bInstance.transform(babelify, {presets: ['latest', 'react']});
 
-let bundle = () => {
+let bInstanceServer = browserify(
+  {entries: ['src/server.js'],
+  debug: true,
+  cache: {},
+  packageCache: {},
+});
+bInstanceServer.external(dependencies);
+bInstanceServer.transform(babelify, {presets: ['latest', 'react']});
+
+let bundle = (bInstance, sourceName, destination) => {
   let start = Date.now();
   return bInstance.bundle()
     .on('error', function(err) {
@@ -48,12 +62,13 @@ let bundle = () => {
         (Date.now() - start) + 'ms.'));
       browserSync.reload();
     })
-    .pipe(source('bundle.js'))
+    .pipe(source(sourceName))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('dist/js'));
+    .pipe(gulp.dest(destination));
 };
+
 
 /**
  * Browserify our external dependencies once
@@ -75,7 +90,11 @@ gulp.task('bundle-vendor', function() {
  * watchify requiring an initial bundling
  */
 gulp.task('browserify', ['bundle-vendor'], function() {
-  return bundle();
+  return bundle(bInstance, 'bundle.js', 'dist/js');
+});
+
+gulp.task('browserifyServer', function() {
+  return bundle(bInstanceServer, 'server.js', 'dist');
 });
 
 /**
@@ -84,9 +103,11 @@ gulp.task('browserify', ['bundle-vendor'], function() {
  */
  gulp.task('watchify', function() {
    return bInstance.on('update', () => {
-     bundle();
+     bundle(bInstance, 'bundle.js', 'dist/js');
+     browserSync.reload();
    });
  });
+
 
 /**
  * Compile and move all of our styles (.scss files)
@@ -127,7 +148,8 @@ gulp.task('font-awesome', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build', ['browserify', 'styles', 'staticFiles', 'font-awesome']);
+gulp.task('build', ['browserify', 'browserifyServer',
+  'styles', 'staticFiles', 'font-awesome']);
 
 /**
  * BrowserSync/serving specific tasks below
@@ -169,4 +191,21 @@ gulp.task('clean', function() {
 
 gulp.task('default', ['clean'], function() {
   gulp.start('serve');
+});
+
+gulp.task('database', function() {
+  let stream = nodemon({
+    script: 'dist/server.js',
+    watch: 'src/server.js',
+    tasks: ['browserifyServer']});
+
+  stream
+      .on('restart', function() {
+        gutil.log(gutil.colors.green('Finished restarting the database'));
+      })
+      .on('crash', function() {
+        gutil.log(gutil.colors.red('The database has crashed! ' +
+          'Attempting to restart...'));
+        stream.emit('restart', 5);
+      });
 });
