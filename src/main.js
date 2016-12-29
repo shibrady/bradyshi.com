@@ -1,10 +1,11 @@
-/* global document */
+/* global document require*/
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import Thunk from 'redux-thunk';
 import MainNav from './containers/MainNavContainer';
 import MainDesc from './containers/MainDescContainer';
 import About from './containers/AboutMeContainer';
@@ -12,7 +13,10 @@ import Projects from './containers/ProjectsContainer';
 import Blog from './containers/BlogContainer';
 import RootReducer from './reducers/root';
 
-let store = createStore(RootReducer);
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
+let store = createStore(RootReducer, applyMiddleware(Thunk));
 
 ReactDOM.render(
   <Provider store={store}>
