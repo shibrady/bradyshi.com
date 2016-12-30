@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.2"
-     inkscape:cx="31.229331"
+     inkscape:cx="18.059688"
      inkscape:cy="33.170676"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -48,7 +48,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -75,6 +75,7 @@
          sodipodi:role="line"
          id="tspan5708"
          x="336.89716"
-         y="483.3548">BS</tspan></text>
+         y="483.3548"
+         style="-inkscape-font-specification:'Merriweather, Normal';font-family:Merriweather;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:35.00000204px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%">BS</tspan></text>
   </g>
 </svg>
