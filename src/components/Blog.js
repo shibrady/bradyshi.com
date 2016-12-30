@@ -1,3 +1,5 @@
+/* global process */
+
 import React, {PropTypes} from 'react';
 import DOMPurify from 'dompurify';
 
@@ -7,7 +9,9 @@ class Blog extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBlogPosts('http://localhost:8080');
+    this.props.fetchBlogPosts(process.env.NODE_ENV == 'development' ?
+      'http://localhost:8080' :
+      'http://bradyshi.com');
   }
 
   render() {

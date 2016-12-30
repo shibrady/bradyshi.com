@@ -1,4 +1,4 @@
-/* global require */
+/* global require process */
 'use strict';
 
 let gulp = require('gulp');
@@ -12,6 +12,7 @@ let sourcemaps = require('gulp-sourcemaps');
 let concat = require('gulp-concat');
 let del = require('del');
 let babelify = require('babelify');
+let envify = require('envify/custom');
 let browserify = require('browserify');
 let watchify = require('watchify');
 let buffer = require('vinyl-buffer');
@@ -36,6 +37,7 @@ let serverDependencies = ['pg',
   'cors',
 ];
 
+let environment = process.env.NODE_ENV;
 let bInstance = browserify(
   {entries: ['src/main.js'],
   debug: true,
@@ -45,6 +47,9 @@ let bInstance = browserify(
 });
 bInstance.external(dependencies);
 bInstance.transform(babelify, {presets: ['latest', 'react']});
+bInstance.transform(envify({
+  NODE_ENV: environment,
+}));
 
 let bInstanceServer = browserify(
   {entries: ['src/server.js'],
@@ -152,7 +157,7 @@ gulp.task('font-awesome', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build', ['browserify', 'browserifyServer',
+gulp.task('build', ['browserify',
   'styles', 'staticFiles', 'font-awesome']);
 
 /**
@@ -197,7 +202,7 @@ gulp.task('default', ['clean'], function() {
   gulp.start('serve');
 });
 
-gulp.task('database', function() {
+gulp.task('database', ['browserifyServer'], function() {
   let stream = nodemon({
     script: 'dist/server.js'});
 

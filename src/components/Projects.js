@@ -1,3 +1,5 @@
+/* global process */
+
 import React, {PropTypes} from 'react';
 
 class Projects extends React.Component {
@@ -6,7 +8,9 @@ class Projects extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchProjects('http://localhost:8080');
+    this.props.fetchProjects(process.env.NODE_ENV == 'development' ?
+      'http://localhost:8080' :
+      'http://bradyshi.com');
   }
 
   render() {
