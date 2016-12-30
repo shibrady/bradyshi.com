@@ -9,8 +9,8 @@ class Projects extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects(process.env.NODE_ENV == 'development' ?
-      'http://localhost:8080' :
-      'http://bradyshi.com');
+      'http://localhost:8080/projects' :
+      'http://bradyshi.com/api/projects');
   }
 
   render() {

@@ -16,7 +16,7 @@ function receiveBlogPosts(posts) {
 export function fetchBlogPosts(server) {
   return (dispatch) => {
     dispatch(requestBlogPosts());
-    return fetch(server + '/blog')
+    return fetch(server)
       .then((response) => {
         return response.json();
       })

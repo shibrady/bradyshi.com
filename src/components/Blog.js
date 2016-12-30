@@ -10,8 +10,8 @@ class Blog extends React.Component {
 
   componentDidMount() {
     this.props.fetchBlogPosts(process.env.NODE_ENV == 'development' ?
-      'http://localhost:8080' :
-      'http://bradyshi.com');
+      'http://localhost:8080/blog' :
+      'http://bradyshi.com/api/blog');
   }
 
   render() {

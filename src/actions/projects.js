@@ -16,7 +16,7 @@ function receiveProjects(projects) {
 export function fetchProjects(server) {
   return (dispatch) => {
     dispatch(requestProjects());
-    return fetch(server + '/projects')
+    return fetch(server)
       .then((response) => {
         return response.json();
       })
