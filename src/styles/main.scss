@@ -11,6 +11,7 @@ body {
 }
 
 #root {
+  background-color: $primary-background-color;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -47,11 +48,11 @@ body {
     text-transform: uppercase;
 
     a {
-      color: $primary-text-color;
+      color: $secondary-text-color;
       text-decoration: none;
 
       &:visited {
-        color: $primary-text-color;
+        color: $secondary-text-color;
         text-decoration: none;
       }
     }
@@ -77,11 +78,11 @@ body {
   }
 
   a {
-    color: $primary-text-color;
+    color: $secondary-text-color;
     text-decoration: none;
 
     &:visited {
-      color: $primary-text-color;
+      color: $secondary-text-color;
       text-decoration: none;
     }
   }

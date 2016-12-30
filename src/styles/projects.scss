@@ -32,6 +32,16 @@
   flex-direction: column;
   padding-left: 3em;
 
+  > h1 {
+    color: $primary-text-color;
+  }
+
+  > h2,
+  h3,
+  p {
+    color: $secondary-text-color;
+  }
+
   > h2 {
     margin-bottom: .5em;
     margin-top: 0;

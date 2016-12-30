@@ -18,13 +18,15 @@
   flex-direction: column;
 
   > h2 {
-    font-size: 2rem;
+    color: $primary-text-color;
+    font-size: 2.5rem;
     margin: .25em 0;
   }
 
   > p {
-    font-size: 1.5rem;
-    line-height: 2.5rem;
+    color: $secondary-text-color;
+    font-size: 1.75rem;
+    line-height: 3rem;
     margin: .25em 0;
   }
 }
@@ -50,6 +52,7 @@
     }
 
     .icon-descriptor {
+      color: $secondary-text-color;
       font-size: 2rem;
       padding-left: 2em;
     }

@@ -9,14 +9,20 @@
 }
 
 .blog-post-snippet {
-  border-bottom: 1px solid $primary-border-color;
+  border-bottom: 3px solid $primary-border-color;
   display: flex;
   flex-direction: column;
   padding: 2em 0;
   width: 50%;
 
   h1 {
+    color: $primary-text-color;
     margin: 0;
+  }
+
+  > h2,
+  p {
+    color: $secondary-text-color;
   }
 
   h2 {
