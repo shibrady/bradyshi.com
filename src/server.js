@@ -16,6 +16,29 @@ let pgConfig = {
 let pool = new pg.Pool(pgConfig);
 
 app.use(cors());
+app.get('/blog', function(req, res) {
+  pool.connect(function(err, client, release) {
+    if (err) {
+      res.status(500).send({
+        error: 'Could not connect to the database!',
+      });
+    }
+
+    client.query('SELECT * FROM blogposts', [], function(err, result) {
+      if (err) {
+        res.status(500).send({
+          error: 'Blog could not be queried.',
+          trace: err,
+        });
+      } else {
+        res.send(result.rows);
+      }
+    });
+
+    release();
+  });
+});
+
 app.get('/projects', function(req, res) {
   pool.connect(function(err, client, release) {
     if (err) {
