@@ -17,7 +17,11 @@
    inkscape:version="0.91 r13725"
    sodipodi:docname="bs_logo.svg">
   <defs
-     id="defs4164" />
+     id="defs4164">
+     <style type="text/css">
+       @import url("https://fonts.googleapis.com/css?family=Merriweather");
+     </style>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
