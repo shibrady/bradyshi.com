@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.2"
-     inkscape:cx="18.059688"
+     inkscape:cx="11.745641"
      inkscape:cy="33.170676"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -66,16 +66,15 @@
        y="455.35703" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;line-height:125%;font-family:Rubik;-inkscape-font-specification:'Rubik, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="336.89716"
-       y="483.3548"
-       id="text5706"
-       sodipodi:linespacing="125%"
-       transform="scale(0.97966711,1.0207549)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.50000381px;line-height:125%;font-family:Merriweather;-inkscape-font-specification:'Merriweather, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="330.09155"
+       y="494.50543"
+       id="text4134"
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan5708"
-         x="336.89716"
-         y="483.3548"
-         style="-inkscape-font-specification:'Merriweather, Normal';font-family:Merriweather;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:35.00000204px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%">BS</tspan></text>
+         id="tspan4136"
+         x="330.09155"
+         y="494.50543"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.00000381px;line-height:125%;font-family:Merriweather;-inkscape-font-specification:'Merriweather, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start">BS</tspan></text>
   </g>
 </svg>
