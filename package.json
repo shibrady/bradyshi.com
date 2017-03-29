@@ -16,6 +16,10 @@
     "build-prod-w": "set NODE_ENV=production&& gulp build",
     "server": "gulp browserifyServer"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "dependencies": {
     "cors": "^2.8.1",
     "dompurify": "^0.8.4",

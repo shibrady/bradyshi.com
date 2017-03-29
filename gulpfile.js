@@ -130,7 +130,7 @@ gulp.task('styles', function() {
       ])
     .pipe(changed('./dist/styles', {extension: '.css'}))
     .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer({browsers: ['last 2 versions']}))
+    .pipe(autoprefixer())
     .pipe(cleanCss())
     .pipe(concat('stylesheet.css'))
     .pipe(gulp.dest('dist/styles'));
