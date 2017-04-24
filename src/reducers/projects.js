@@ -1,3 +1,5 @@
+import _ from 'underscore';
+
 function projects(state = {
   isFetching: false,
   items: [],
@@ -7,11 +9,13 @@ function projects(state = {
       return Object.assign({}, state, {
         isFetching: true,
       });
-    case 'RECEIVE_PROJECTS':
+    case 'RECEIVE_PROJECTS': {
+      let sorted = _.sortBy(action.projects, 'ordering');
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.projects,
+        items: sorted,
       });
+    }
     default:
       return state;
   }
