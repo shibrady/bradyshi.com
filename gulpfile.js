@@ -29,6 +29,7 @@ let dependencies = ['react',
   'redux-devtools',
   'redux-thunk',
   'dompurify',
+  'underscore',
 ];
 
 let serverDependencies = ['pg',
