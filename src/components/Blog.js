@@ -23,7 +23,7 @@ class Blog extends React.Component {
             <div key={post._id} className="blog-post-snippet">
               <h1>{post.title}</h1>
               <h2>{post.subtitle}</h2>
-              <img src={'./assets/' + post.banner_filename}
+              <img src={'./assets/blog/' + post.banner_filename}
                 alt={post.banner_alt}/>
               <p dangerouslySetInnerHTML={{__html:
                   DOMPurify.sanitize(post.content)}}>

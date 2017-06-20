@@ -22,7 +22,7 @@ class Projects extends React.Component {
             return (<section key={project._id} className="project-section">
               <div className="project-image-cont">
                 <video controls>
-                  <source src={'./assets/' + project.image_filename}
+                  <source src={'./assets/projects/' + project.image_filename}
                     type="video/mp4"/>
                 </video>
               </div>
@@ -38,7 +38,7 @@ class Projects extends React.Component {
           return (<section key={project._id} className="project-section">
             <div className="project-image-cont">
               <a href={project.extern}>
-                <img src={'./assets/' + project.image_filename}
+                <img src={'./assets/projects/' + project.image_filename}
                   alt={project.name}/>
               </a>
             </div>

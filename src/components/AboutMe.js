@@ -17,7 +17,7 @@ const AboutMe = () => {
       </section>
       <div className="about-aside">
         <div className="icon-and-descriptor">
-          <a href="./assets/Brady_Shi_Resume.pdf">
+          <a href="./assets/about/Brady_Shi_Resume.pdf">
             <i className="fa fa-file-text-o fa-fw fa-3x"></i>
           </a>
           <span className="icon-descriptor">Take a look at my resume!</span>
